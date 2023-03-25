@@ -44,6 +44,7 @@ private:
 	void Move(float Value);
 	void Turn(float Value);
 
+	UPROPERTY()
 	APlayerController* PlayerControllerRef; 
 	
 	
