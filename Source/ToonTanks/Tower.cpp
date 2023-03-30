@@ -32,13 +32,18 @@ void ATower::Tick(float DeltaTime)
 void ATower::HandleDestruction()
 {
 	Super::HandleDestruction();
+	
 	Destroy();
 }
 
 void ATower::CheckFireCondition()
 {
+	if (Tank == nullptr)
+	{
+		return;
+	}
 
-	if (IsPlayerInRange())
+	if (IsPlayerInRange() && Tank->bAlive  )
 	{
 		Fire();
 	}

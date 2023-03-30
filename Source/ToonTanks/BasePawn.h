@@ -26,6 +26,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Combat")
 	TSubclassOf<class AProjectile> ProjectileClass;
 
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	class UParticleSystem* DeathParticles;
+
 private:
 
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = "Components",meta = (AllowPrivateAccess = "true"))
@@ -37,7 +40,11 @@ private:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = "Components",meta = (AllowPrivateAccess = "true"))
 	USceneComponent* ProjectileSpawnPoint;
 
-	
+	UPROPERTY(EditAnywhere, Category = "Comabat")
+	USoundBase* DeathSound;
+
+	UPROPERTY(EditAnywhere, Category = "Comabat")
+	TSubclassOf<class UCameraShakeBase> DeathCameraShakeClass;
 	
 
 };

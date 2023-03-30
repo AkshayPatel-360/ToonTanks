@@ -28,6 +28,9 @@ private:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = "Combat",meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* ProjectileMesh;
 
+	UPROPERTY(VisibleAnywhere,Category = "Combat")
+	UParticleSystemComponent* TrailParticles;
+
 	UPROPERTY(EditAnywhere,Category = "Combat")
 	class UProjectileMovementComponent* ProjectileMovementComponent;
 
@@ -36,6 +39,15 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = "Combat")
 	class UParticleSystem* HitParticales;
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	USoundBase* LaunchSound;
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	USoundBase* HitSound;
+	
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	TSubclassOf<class UCameraShakeBase> HitCameraShakeClass;
 
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComp,AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
