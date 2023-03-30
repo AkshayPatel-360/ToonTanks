@@ -18,6 +18,9 @@ ATank::ATank()
 void ATank::BeginPlay()
 {
 	Super::BeginPlay();
+	
+	FVector TowardsGroundLocation = GetActorLocation() + (GetActorUpVector() * -100.f);
+	SetActorLocation(TowardsGroundLocation, true);
 
 	TankPlayerController = Cast<APlayerController>(GetController());
 }
@@ -31,7 +34,7 @@ void ATank::Tick(float DeltaTime)
 		FHitResult HitResult;
 		TankPlayerController->GetHitResultUnderCursor(ECC_Visibility,false,HitResult);
 
-		DrawDebugSphere(GetWorld(),HitResult.ImpactPoint,12,12,FColor::Cyan,false,-1);
+		//wDrawDebugSphere(GetWorld(),HitResult.ImpactPoint,12,12,FColor::Cyan,false,-1);
 
 		RotateTurret(HitResult.ImpactPoint);
 	}

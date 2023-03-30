@@ -34,6 +34,8 @@ private:
 	UPROPERTY(EditAnywhere,Category = "Combat")
 	float Damage = 50;
 
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	class UParticleSystem* HitParticales;
 
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComp,AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
